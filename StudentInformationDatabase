@@ -76,3 +76,19 @@ INSERT INTO reading_record VALUES ('1007', '31', '36', '38', '37', '41', '47', '
 INSERT INTO reading_record VALUES ('1008', '35', '38', '39', '44', '43', '46', '48', '51', '54', '56')
 INSERT INTO reading_record VALUES ('1009', '43', '47', '49', '51', '53', '55', '61', '64', '67', '65')
 INSERT INTO reading_record VALUES ('1010', '52', '54', '56', '57', '55', '58', '61', '60', '67', '65')
+
+#I decided to pivot the reading_record table.
+SELECT *
+FROM reading_record
+UNPIVOT (
+
+#Some example queries
+
+SELECT FirstName, LastName, GoalLevel, 
+ROUND(AVG(1001), AVG(1002), AVG(1003), AVG(1004), AVG (1005), AVG(1006), AVG(1007), AVG(1008), AVG(1009), AVG(1010))
+FROM student_info
+INNER JOIN student_level ON student_info.studentID = student_level.StudentID
+INNER JOIN reading_record ON student_info.studentID = reading_record.StudentID)
+GROUP BY
+WHERE
+ORDER BY
