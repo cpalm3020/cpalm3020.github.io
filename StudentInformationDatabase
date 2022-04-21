@@ -13,7 +13,7 @@ LOG ON
 #Next, I created the three tables that would be housed in my database. 
 
 CREATE TABLE student_info (
-StudentID int NOT NULL PRIMARY KEY,
+StudentID int NOT NULL PRIMARY KEY AUTO_INCREMENT=1001,
 FirstName varchar(50),
 LastName varchar(50),
 Grade int,
@@ -21,14 +21,14 @@ Teacher varchar(50)
 );
 
 CREATE TABLE student_level (
-StudentID int NOT NULL PRIMARY KEY,
+StudentID int NOT NULL fOREIGN KEY AUTO_INCREMENT=1001,
 StartingLevel varchar (50),
 CurrentLevel varchar (50),
 GoalLevel varchar (50)
 );
 
 CREATE TABLE reading_record (
-StudentID int NOT NULL PRIMARY KEY,
+StudentID int NOT NULL FOREIGN KEY AUTO_INCREMENT=1001,,
 Session1 int,
 Session2 int,
 Session3 int,
@@ -41,54 +41,77 @@ Session9 int,
 Session10 int
 );
 
+CREATE TABLE reading_levels (
+Level varchar(50),
+Accuracy int,
+WPM int
+);
+
 
 #Next, I inserted data into the tables.
 
-INSERT INTO student_info VALUES (1, '1001', 'Jack', 'Jones', '1', 'Johnson');
-INSERT INTO student_info VALUES (2, '1002', 'Abby', 'Smith', '1', 'Johnson');
-INSERT INTO student_info VALUES (3, '1003', 'Latisha', 'Avery', '1', 'Peterson');
-INSERT INTO student_info VALUES (4, '1004', 'Graham', 'White', '1', 'Peterson');
-INSERT INTO student_info VALUES (5, '1005', 'Henry', 'Brass', '2', 'Hunt');
-INSERT INTO student_info VALUES (6, '1006', 'Sabrina', 'Quinn', '2', 'Hunt);
-INSERT INTO student_info VALUES (7, '1007', 'Nellie', 'Jones', '2', 'Smith');
-INSERT INTO student_info VALUES (8, '1008', 'Mohammed', 'Salah', '3', 'Jackson');
-INSERT INTO student_info VALUES (9, '1009', 'Bob', 'Lyle', '3', 'Walker');
-INSERT INTO student_info VALUES (10, '1010', 'Annie', 'Stone', '4', 'Jacobson');
+INSERT INTO student_info VALUES ('Jack', 'Jones', '1', 'Johnson');
+INSERT INTO student_info VALUES ('Abby', 'Smith', '1', 'Johnson');
+INSERT INTO student_info VALUES ('Latisha', 'Avery', '1', 'Peterson');
+INSERT INTO student_info VALUES ('Graham', 'White', '1', 'Peterson');
+INSERT INTO student_info VALUES ('Henry', 'Brass', '2', 'Hunt');
+INSERT INTO student_info VALUES 'Sabrina', 'Quinn', '2', 'Hunt);
+INSERT INTO student_info VALUES ('Nellie', 'Jones', '2', 'Smith');
+INSERT INTO student_info VALUES ('Mohammed', 'Salah', '3', 'Jackson');
+INSERT INTO student_info VALUES ('Bob', 'Lyle', '3', 'Walker');
+INSERT INTO student_info VALUES ('Annie', 'Stone', '4', 'Jacobson');
 
-INSERT INTO student_level VALUES (1, '1001', 'G1-Oct', 'G1-March', 'G1-End');
-INSERT INTO student_level VALUES (2, '1002', 'G1-Oct', 'G1-Oct', 'G1-End');
-INSERT INTO student_level VALUES (3, '1003', 'G1-Oct', 'G1-End', 'G1-End');
-INSERT INTO student_level VALUES (4, '1004', 'G1-Oct', 'G1-March', 'G1-End');
-INSERT INTO student_level VALUES (5, '1005', 'G1-March', 'G1-End', 'G3-Early');
-INSERT INTO student_level VALUES (6, '1006', 'G1-End', 'G2-Mid', 'G3-Early');
-INSERT INTO student_level VALUES (7, '1007', 'G1-End', 'G2-End', 'G3-Early');
-INSERT INTO student_level VALUES (8, '1008', 'G1-End', 'G2-End', 'G4-Early');
-INSERT INTO student_level VALUES (9, '1009', 'G2-Mid', 'G3-Early', 'G4-Early');
-INSERT INTO student_level VALUES (10, '1010', 'G3-Early', 'G3-End', 'G5-Early');
+INSERT INTO student_level VALUES ('G1-Oct', 'G1-March', 'G1-End');
+INSERT INTO student_level VALUES ('G1-Oct', 'G1-Oct', 'G1-End');
+INSERT INTO student_level VALUES ('G1-Oct', 'G1-End', 'G1-End');
+INSERT INTO student_level VALUES ('G1-Oct', 'G1-March', 'G1-End');
+INSERT INTO student_level VALUES ('G1-March', 'G1-End', 'G3-Early');
+INSERT INTO student_level VALUES ('G1-End', 'G2-Mid', 'G3-Early');
+INSERT INTO student_level VALUES ('G1-End', 'G2-End', 'G3-Early');
+INSERT INTO student_level VALUES ('G1-End', 'G2-End', 'G4-Early');
+INSERT INTO student_level VALUES ('G2-Mid', 'G3-Early', 'G4-Early');
+INSERT INTO student_level VALUES ('G3-Early', 'G3-End', 'G5-Early');
 
-INSERT INTO reading_record VALUES ('1001', '10','11','8','15','13', '17', '21','23', '25', '23') 
-INSERT INTO reading_record VALUES ('1002', '5', '7', '13', '16', '18', '15', '14', '17', '18', '19') 
-INSERT INTO reading_record VALUES ('1003', '8', '9', '12', '15', '17', '14', '19', '22', '24', '27')
-INSERT INTO reading_record VALUES ('1004', '5', '7', '9', '12', '14', '16', '18', '22', '21', '25')
-INSERT INTO reading_record VALUES ('1005', '17', '15', '19', '23', '26', '28', '24', '30', '26', '32')
-INSERT INTO reading_record VALUES ('1006', '22', '25', '26', '28', '31', '25', '34', '36', '38', '42')
-INSERT INTO reading_record VALUES ('1007', '31', '36', '38', '37', '41', '47', '46', '44', '48', '47')
-INSERT INTO reading_record VALUES ('1008', '35', '38', '39', '44', '43', '46', '48', '51', '54', '56')
-INSERT INTO reading_record VALUES ('1009', '43', '47', '49', '51', '53', '55', '61', '64', '67', '65')
-INSERT INTO reading_record VALUES ('1010', '52', '54', '56', '57', '55', '58', '61', '60', '67', '65')
+INSERT INTO reading_record VALUES ('10','11','8','15','13', '17', '21','23', '25', '23');
+INSERT INTO reading_record VALUES ('5', '7', '13', '16', '18', '15', '14', '17', '18', '19');
+INSERT INTO reading_record VALUES ('8', '9', '12', '15', '17', '14', '19', '22', '24', '27');
+INSERT INTO reading_record VALUES ('5', '7', '9', '12', '14', '16', '18', '22', '21', '25');
+INSERT INTO reading_record VALUES ('17', '15', '19', '23', '26', '28', '24', '30', '26', '32');
+INSERT INTO reading_record VALUES ('22', '25', '26', '28', '31', '25', '34', '36', '38', '42');
+INSERT INTO reading_record VALUES ('31', '36', '38', '37', '41', '47', '46', '44', '48', '47');
+INSERT INTO reading_record VALUES ('35', '38', '39', '44', '43', '46', '48', '51', '54', '56');
+INSERT INTO reading_record VALUES ('43', '47', '49', '51', '53', '55', '61', '64', '67', '65');
+INSERT INTO reading_record VALUES ('52', '54', '56', '57', '55', '58', '61', '60', '67', '65');
 
-#I decided to pivot the reading_record table.
-SELECT *
-FROM reading_record
-UNPIVOT (
+INSERT INTO reading_levels VALUES ('G1-Oct', '85', '20');
+INSERT INTO reading_levels VALUES ('G1-March', '90', '30');
+INSERT INTO reading_levels VALUES ('G1-End', '90', '40');
+INSERT INTO reading_levels VALUES ('G2-Mid', '90', '50');
+INSERT INTO reading_levels VALUES ('G2-End', '90', '60');
+INSERT INTO reading_levels VALUES ('G3-Early', '90', '70');
+INSERT INTO reading_levels VALUES ('G3-Mid', '90', '80');
+INSERT INTO reading_levels VALUES ('G3-End', '90', '85');
+INSERT INTO reading_levels VALUES ('G4-Early', '90', '90');
+
 
 #Some example queries
 
-SELECT FirstName, LastName, GoalLevel, 
-ROUND(AVG(1001), AVG(1002), AVG(1003), AVG(1004), AVG (1005), AVG(1006), AVG(1007), AVG(1008), AVG(1009), AVG(1010))
+SELECT FirstName, LastName, CurrentLevel, (Session1 + Session2 + Session3 + Session4 + Session5 + Session6 + Session7 + Session8 + Session9 + Session10) / 10 AS average_reading_score
 FROM student_info
 INNER JOIN student_level ON student_info.studentID = student_level.StudentID
-INNER JOIN reading_record ON student_info.studentID = reading_record.StudentID)
-GROUP BY
-WHERE
-ORDER BY
+INNER JOIN reading_record ON student_info.studentID = reading_record.StudentID
+WHERE ((Session1 + Session2 + Session3 + Session4 + Session5 + Session6 + Session7 + Session8 + Session9 + Session10) / 10) >= '20'
+ORDER BY (Session1 + Session2 + Session3 + Session4 + Session5 + Session6 + Session7 + Session8 + Session9 + Session10) / 10) DESC, LastName;
+
+UPDATE student_level
+SET CurrentLevel = 'G1-March'
+WHERE StudentID = 1002;
+
+CREATE VIEW johnson_class AS
+SELECT FirstName, LastName, Teacher, CurrentLevel, GoalLevel
+FROM student_info
+INNER JOIN student_level ON student_info.studentID = student_level.StudentID
+WHERE teacher = 'Johnson';
+
+ALTER TABLE reading_record
+ADD Session11;
