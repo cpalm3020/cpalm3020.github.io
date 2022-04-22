@@ -79,16 +79,23 @@ INSERT INTO reading_record VALUES ('52', '54', '56', '57', '55', '58', '61', '60
 
 #Some example queries
 
+UPDATE student_level
+SET CurrentLevel = 'G1-March'
+WHERE StudentID = 1002;
+
+ALTER TABLE reading_record
+ADD Session11;
+
+DELETE FROM student_info
+WHERE StudentID = 1005;
+
 SELECT FirstName, LastName, CurrentLevel, (Session1 + Session2 + Session3 + Session4 + Session5 + Session6 + Session7 + Session8 + Session9 + Session10) / 10 AS average_reading_score
 FROM student_info
 INNER JOIN student_level ON student_info.studentID = student_level.StudentID
 INNER JOIN reading_record ON student_info.studentID = reading_record.StudentID
 WHERE ((Session1 + Session2 + Session3 + Session4 + Session5 + Session6 + Session7 + Session8 + Session9 + Session10) / 10) >= '20'
-ORDER BY (Session1 + Session2 + Session3 + Session4 + Session5 + Session6 + Session7 + Session8 + Session9 + Session10) / 10) DESC, LastName;
+ORDER BY (Session1 + Session2 + Session3 + Session4 + Session5 + Session6 + Session7 + Session8 + Session9 + Session10) / 10 DESC, LastName;
 
-UPDATE student_level
-SET CurrentLevel = 'G1-March'
-WHERE StudentID = 1002;
 
 CREATE VIEW johnson_class AS
 SELECT FirstName, LastName, Teacher, CurrentLevel, GoalLevel
@@ -96,11 +103,6 @@ FROM student_info
 INNER JOIN student_level ON student_info.studentID = student_level.StudentID
 WHERE teacher = 'Johnson';
 
-ALTER TABLE reading_record
-ADD Session11;
-
-DELETE FROM student_info
-WHERE StudentID = 1005;
 
 SELECT FirstName, LastName, Teacher, CurrentLevel, GoalLevel
 FROM student_level
