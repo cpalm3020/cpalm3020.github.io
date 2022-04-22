@@ -103,8 +103,18 @@ FROM student_info
 INNER JOIN student_level ON student_info.studentID = student_level.StudentID
 WHERE teacher = 'Johnson';
 
-
 SELECT FirstName, LastName, Teacher, CurrentLevel, GoalLevel
 FROM student_level
 INNER JOIN student_info ON student_level.studentID = student_info.StudentID
 WHERE teacher = 'Peterson' OR teacher = 'Johnson' OR teacher = 'Hunt';
+
+SELECT COUNT(StudentID) AS number_of_students, Teacher
+FROM student_info
+WHERE Grade = '3' 
+GROUP BY Teacher
+HAVING COUNT(StudentID) = 1;
+
+SELECT  MIN(Session10) AS lowest_reading_rate_2nd, MAX(Session10) AS highest_reading_rate_2nd
+FROM student_info
+INNER JOIN reading_record ON student_info.studentID = reading_record.StudentID
+WHERE Grade = '2' ;
