@@ -41,12 +41,6 @@ Session9 int,
 Session10 int
 );
 
-CREATE TABLE reading_levels (
-Level varchar(50),
-Accuracy int,
-WPM int
-);
-
 
 #Next, I inserted data into the tables.
 
@@ -115,3 +109,11 @@ WHERE teacher = 'Johnson';
 
 ALTER TABLE reading_record
 ADD Session11;
+
+DELETE FROM student_info
+WHERE StudentID = 1005;
+
+SELECT FirstName, LastName, Teacher, CurrentLevel, GoalLevel
+FROM student_level
+INNER JOIN student_info ON student_level.studentID = student_info.StudentID
+WHERE teacher = 'Peterson' OR teacher = 'Johnson' OR teacher = 'Hunt';
